@@ -1,6 +1,6 @@
-## Welcome to GitHub Pages
+## Welcome
 
-You can use the [editor on GitHub](https://github.com/trautvetter/aus-nz-maker-map/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+When I started my YouTube channel in late 2017 I knew of only two other NZ YouTubers. (Joey @ KingPost TimberWorks & Tim @ The Offcut) Both of these channels had been long time favourites of mine and I started to wonder if there were more. I next discovered Vic @ DownUnderWoodWorks and a whole host of other cool Australia channels. As each person mentioned their particular location in the odd video here and there I developed a mental map of everyone (I'm a visual learner) and this is the fruition of what I know to to date of the Aus/NZ social maker scene.
 
 Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
