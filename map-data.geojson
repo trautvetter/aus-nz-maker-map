@@ -1,1 +1,21 @@
-{"type":"FeatureCollection","features":[{"type":"Feature","properties":{"Name":"Rob Trautvetter","YTChannelId":"UCHQSI_bZ8xYy0hva1J-_U9","MarkerText":"RT","MarkerBlurb":"Foo Studio"},"geometry":{"type":"Point","coordinates":[174.905404150486,-37.200996611829275]}}]}
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "ytChannelId": "UCHQSI_bZ8xYy0hva1J-_U9g",
+        "name": "Rob Trautvetter - Takami Woodshop",
+        "markerTitle": "Foo Studio",
+        "markerLabel": "RT"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          174.905404150486,
+          -37.200996611829275
+        ]
+      }
+    }
+  ]
+}
