@@ -6,7 +6,6 @@
       "properties": {
         "ytChannelId": "UCHQSI_bZ8xYy0hva1J-_U9g",
         "name": "Rob Trautvetter - Takami Woodshop",
-        "markerTitle": "Foo Studio",
         "markerLabel": "RT"
       },
       "geometry": {
@@ -14,6 +13,546 @@
         "coordinates": [
           174.905404150486,
           -37.200996611829275
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ytChannelId": "UCMwkFVvmhR6JmDgdWkio2kA",
+        "name": "Joey Chalk - KingPost TimberWorks",
+        "markerLabel": "JC"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          174.521038,
+          -36.293423
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ytChannelId": "UCZ7uSemDTc5xEotSYMmkKEw",
+        "name": "Vic - DownUnder WoodWorks",
+        "markerLabel": "V"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          151.216762,
+          -33.855579
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ytChannelId": "UCAVSzq_Tk0B-9uTKzIpkBqg",
+        "name": "Scott Turner - Forme Industrious",
+        "markerLabel": "ST"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          146.82346,
+          -19.25157
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ytChannelId": "UC5TIGDEkNJzdYCZUKJFtmxQ",
+        "name": "Robin Lewis - Robin Lewis Makes",
+        "markerLabel": "RL"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          146.821937,
+          -19.253819
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ytChannelId": "UCyg_SKOwdhJjp71VayO3wTQ",
+        "name": "Paul Jenkins - The Wood Knight/TWK2",
+        "markerLabel": "PJ"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          144.917311,
+          -37.819572
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ytChannelId": "UCt1ySOwzjjaepu7VWMtxlgw",
+        "name": "Jordan Crawford - JordsWoodShop/Periodic Furniture Studio",
+        "markerLabel": "JC"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          115.859772,
+          -31.964618
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ytChannelId": "UCNyGbxoEo6CQvaRVEvItxkA",
+        "name": "Neil Paskin - Pask Makes",
+        "markerLabel": "NP"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          152.959776,
+          -26.562886
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ytChannelId": "UC-tXch2Ewt_G9wWBQuIoo3Q",
+        "name": "Dirk Gibbons - Sumo's Projects",
+        "markerLabel": "DG"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          145.395745,
+          -36.388749
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ytChannelId": "UCtER3LFDf4u7Yfau76JGs3g",
+        "name": "Kuffy - Kuffy's Woodwork",
+        "markerLabel": "K"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          144.910118,
+          -37.820596
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ytChannelId": "UCh3thewx0LoiSM9HeOZ3zGQ",
+        "name": "Luis Tozanis - One Man Band Woodworks",
+        "markerLabel": "LT"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          151.214728,
+          -33.855395
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ytChannelId": "UCdaCq6TdMWijnNvh3OSuNOA",
+        "name": "Andrew Jones",
+        "markerLabel": "AJ"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          144.9277,
+          -37.815889
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ytChannelId": "UCSTVVGux21s1PyauIAdsJHw",
+        "name": "Wesley Inglis",
+        "markerLabel": "WI"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          153.627341,
+          -33.852833
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ytChannelId": "UC6pomtPEqoUaTh9fErka09A",
+        "name": "Dale - Wacky Woodworks",
+        "markerLabel": "WW"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          170.56454,
+          -45.871238
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ytChannelId": "UCY5VgGzF-FvnUXIQOtUhuPw",
+        "name": "Tim Lee - The Offcut",
+        "markerLabel": "TL"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          174.946778,
+          -36.887905
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ytChannelId": "UCcPwCYpY20mEemzYmhWqhPw",
+        "name": "tas westy",
+        "markerLabel": "TW"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          147.126979,
+          -41.434441
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ytChannelId": "UCbdG4fBZEawHSiBA5kPeFOA",
+        "name": "Damo Burke - oojagapivy",
+        "markerLabel": "DB"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          150.30474,
+          -33.375497
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ytChannelId": "UCaWyhL_aRycHwvkrrYccaFw",
+        "name": "Dave Stanton",
+        "markerLabel": "DS"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          153.195049,
+          -27.413562
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ytChannelId": "UCgNfhlfN1zy145VcZuAvsxg",
+        "name": "Chris - Built By Chris",
+        "markerLabel": "C"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          144.94404,
+          -37.817501
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ytChannelId": "UCmRS33XwPn62r4ZYPHrAnQQ",
+        "name": "Glen Benson - diy man glen",
+        "markerLabel": "GB"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          174.924729,
+          -37.058842
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ytChannelId": "UCxyQUiYGIJnaIrrxzlw7OEA",
+        "name": "Mario Cappellano - The Wood Father",
+        "markerLabel": "G"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          144.942719,
+          -37.822469
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ytChannelId": "UC9OlGceLf3XqsEmwgEssBYA",
+        "name": "Gary - Aussie Woodworker",
+        "markerLabel": "AW"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          129.415706,
+          -34.129877
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ytChannelId": "UCUKvyvn3FPZcPcwPAUUNtpw",
+        "name": "Ned van Geffen",
+        "markerLabel": "Nv"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          174.812883,
+          -36.867131
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ytChannelId": "UCM8rp6_PEZXJRUBDL6yoK5g",
+        "name": "Tools & Stuff",
+        "markerLabel": "TS"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          174.326894,
+          -35.724378
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ytChannelId": "UCw14LucIMfhTFDYXZkR3-PA",
+        "name": "Mike & Dwayne - OZ Tool Talk",
+        "markerLabel": "MD"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          144.943391,
+          -37.815045
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ytChannelId": "UCY-TqIvCTgI2Rxcb7g4AtOg",
+        "name": "Pedulla Studio",
+        "markerLabel": "PS"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          151.299952,
+          -33.771021
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ytChannelId": "UCZ72zDm2feverqV7qAbNH7Q",
+        "name": "Rob Chesney - Further Fabrication",
+        "markerLabel": "RC"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          174.784051,
+          -41.28801
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ytChannelId": "UCTlrXt9b8V_lWAosEmTohBg",
+        "name": "Make Thangs",
+        "markerLabel": "MT"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          173.684152,
+          -38.378929
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ytChannelId": "UCPildxTx2KLI7j97M8YrQPA",
+        "name": "Tayler Made",
+        "markerLabel": "TM"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          175.037114,
+          -39.950302
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ytChannelId": "UCfykRE-QfJ_8hlk5ARsAmIg",
+        "name": "Aaron Powter",
+        "markerLabel": "AP"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          144.913481,
+          -37.818591
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ytChannelId": "UCwvCQDAOIbv-SKLN7x4iCaw",
+        "name": "Michael Paley",
+        "markerLabel": "MP"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          144.941033,
+          -37.818798
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ytChannelId": "UC0h3IBEDQHxRaVRr4iEDYcA",
+        "name": "Ben Hollist - The Bush Shed",
+        "markerLabel": "BH"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          151.223721,
+          -33.853521
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ytChannelId": "UCxhBFHAR1oZxEOMYWzAU0dQ",
+        "name": "Mark Hariss",
+        "markerLabel": "MH"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          152.540551,
+          -22.454158
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ytChannelId": "UC4V3C5k4hNG5rhABB3JhsIQ",
+        "name": "Mark Susak",
+        "markerLabel": "MS"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          144.938182,
+          -37.820932
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ytChannelId": "",
+        "name": "Ant Stott - Sandwich Furniture",
+        "markerLabel": "SF"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          153.085112,
+          -26.64096
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ytChannelId": "UCzdqcOWbsA3IVuuUZC0qeCQ",
+        "name": "Jay Sybrandy",
+        "markerLabel": "JS"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          174.262411,
+          -39.582337
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ytChannelId": "UC_JILA9Hg517dKdMb3n2OrQ",
+        "name": "Scott Brown Carpentry",
+        "markerLabel": "SB"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          174.733485,
+          -36.829054
         ]
       }
     }
