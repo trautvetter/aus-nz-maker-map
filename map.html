@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        //https://developers.google.com/maps/documentation/javascript/combining-data
+        //https://developers.google.com/maps/documentation/javascript/examples/layer-data-quakes
+    </script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-115617613-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-115617613-1');
+    </script>
+
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Maker Map</title>
+    <style>
+        /* Always set the map height explicitly to define the size of the div
+         * element that contains the map. */
+
+        #map {
+            height: 85%;
+        }
+
+        /* Optional: Makes the sample page fill the window. */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        #floating-panel {
+            position: absolute;
+            top: 10px;
+            left: 25%;
+            z-index: 5;
+            background-color: #fff;
+            padding: 5px;
+            border: 1px solid #999;
+            text-align: center;
+            font-family: 'Roboto','sans-serif';
+            line-height: 30px;
+            padding-left: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Maker Map *beta</h1>
+
+<div id="floating-panel">
+    <button onclick="toggleHeatmap()">Toggle Heatmap</button>
+    <button onclick="changeGradient()">Change gradient</button>
+    <button onclick="changeRadius()">Change radius</button>
+    <button onclick="changeOpacity()">Change opacity</button>
+</div>
+<div id="map"></div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<script>
+
+    var map, heatmap;
+
+    function initMap() {
+
+        // Adds markers to the map.
+
+        // Marker sizes are expressed as a Size of X,Y where the origin of the image
+        // (0,0) is located in the top left of the image.
+
+        // Origins, anchor positions and coordinates of the marker increase in the X
+        // direction to the right and in the Y direction down.
+        var image = {
+            url: 'https://yt3.ggpht.com/-DgePNo-aqWk/AAAAAAAAAAI/AAAAAAAAAAA/GXX4d9rMQuE/s88-c-k-no-mo-rj-c0xffffff/photo.jpg',
+            // This marker is 20 pixels wide by 32 pixels high.
+            size: new google.maps.Size(20, 20),
+            // The origin for this image is (0, 0).
+            origin: new google.maps.Point(0, 0),
+            // The anchor for this image is the base of the flagpole at (0, 32).
+            anchor: new google.maps.Point(0, 32)
+        };
+
+        $.getJSON("map-data.geojson", function(data) {
+
+            let points = [];
+            var features = [];
+            features = data.features;
+            //console.log(features);
+
+            var markers = features.map(function (feature, i) {
+                let coords = feature.geometry.coordinates;
+                let latLng = new google.maps.LatLng(coords[1], coords[0]);
+                points[i] = latLng;
+                let properties = feature.properties;
+                return new google.maps.Marker({
+                    position: latLng,
+                    map: map,
+                    label: properties.markerLabel,
+                    title: properties.name,
+
+                    // icon: image,
+                    //shape: shape,
+                    //zIndex: beach[3]
+                });
+            });
+
+            markers.map(function (marker, i) {
+                marker.addListener('click', function () {
+                    doInfoWindow(features[i], marker);
+                })
+            });
+
+            // Add a marker clusterer to manage the markers.
+            var markerCluster = new MarkerClusterer(map, markers,
+                {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
+
+            heatmap = new google.maps.visualization.HeatmapLayer({
+                data: points, //getPoints(features),
+                map: map
+            });
+
+        });
+
+        map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 5,
+            center: {lat: -31.780383, lng: 150.819296}
+        });
+
+    }
+
+
+    function toggleHeatmap() {
+        heatmap.setMap(heatmap.getMap() ? null : map);
+    }
+
+    function changeRadius() {
+        heatmap.set('radius', heatmap.get('radius') ? null : 30);
+    }
+
+    function changeOpacity() {
+        heatmap.set('opacity', heatmap.get('opacity') ? null : 0.2);
+    }
+
+    function changeGradient() {
+        var gradient = [
+            'rgba(0, 255, 255, 0)',
+            'rgba(0, 255, 255, 1)',
+            'rgba(0, 191, 255, 1)',
+            'rgba(0, 127, 255, 1)',
+            'rgba(0, 63, 255, 1)',
+            'rgba(0, 0, 255, 1)',
+            'rgba(0, 0, 223, 1)',
+            'rgba(0, 0, 191, 1)',
+            'rgba(0, 0, 159, 1)',
+            'rgba(0, 0, 127, 1)',
+            'rgba(63, 0, 91, 1)',
+            'rgba(127, 0, 63, 1)',
+            'rgba(191, 0, 31, 1)',
+            'rgba(255, 0, 0, 1)'
+        ]
+        heatmap.set('gradient', heatmap.get('gradient') ? null : gradient);
+    }
+
+</script>
+<script>
+
+    function doInfoWindow(feature, marker) {
+
+        if (!feature.properties.ytChannelId) {
+            return;
+        }
+
+        $.getJSON("https://www.googleapis.com/youtube/v3/channels?id=" + feature.properties.ytChannelId + "&part=snippet%2Cstatistics%20&key=AIzaSyAM07LwlqctGqM2Iditc__5rYYnbVdnX-o", function(data) {
+            //console.log(data);
+            var snippet = data.items[0].snippet;
+            var statistics = data.items[0].statistics;
+            var html = '';
+
+            html += '<div id="content">';
+            html += '<div id="siteNotice"></div>';
+            html += '<h1 id="firstHeading" class="firstHeading">' + snippet.title + '</h1>';
+            html += '<div id="bodyContent">';
+            html += '<p>' + snippet.description + '</p>';
+            //html += '<img src=' + images/'+value.product+'.png"/>';
+
+            html += '</div>';
+            html += '</div>';
+
+            openWindow(html, marker);
+
+        });
+    }
+    function openWindow(data, marker) {
+        var infowindow = new google.maps.InfoWindow({
+             content: data
+         });
+        infowindow.open(map, marker);
+    };
+
+
+</script>
+
+
+<script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNRTbsvwNlNP8-x28NOLaNj4ZK7XtG-8k&libraries=visualization&callback=initMap">
+</script>
+
+</body>
+</html>
