@@ -1,4 +1,9 @@
 {
+  "toAdd": [
+    {
+      "foo": "bar"
+    }
+  ],
   "type": "FeatureCollection",
   "features": [
     {
@@ -553,6 +558,51 @@
         "coordinates": [
           174.733485,
           -36.829054
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ytChannelId": "UCYJ4e0XACGJQjJvfmVUcE-Q-_U9g",
+        "name": "Brendan Stemp",
+        "markerLabel": "BS"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          128.95751953125,
+          -33.41310221370828
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ytChannelId": "UCamxdpLgM4yPF5fgxzG2y5g",
+        "name": "Woodworking Masterclass",
+        "markerLabel": "WM"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          130.7373046875,
+          -32.73184089686568
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ytChannelId": "UCdx6kU6uY8qpNQPPd900c9A",
+        "name": "Steven Zhang",
+        "markerLabel": "SZ"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.61718749999999,
+          -33.100745405144245
         ]
       }
     }
