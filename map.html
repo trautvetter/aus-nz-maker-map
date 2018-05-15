@@ -45,6 +45,57 @@
             line-height: 30px;
             padding-left: 10px;
         }
+        #goCenterUI, #setCenterUI {
+            background-color: #fff;
+            border: 2px solid #fff;
+            border-radius: 2px;
+            box-shadow: rgba(0, 0, 0, 0.3) 0 1px 4px -1px;
+            cursor: pointer;
+            float: left;
+            margin-bottom: 22px;
+            text-align: center;
+        }
+        #goCenterText, #setCenterText {
+            color: rgb(86,86,86);
+            font-family: Roboto,Arial,sans-serif;
+            font-size: 11px;
+            line-height: 25px;
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+        #setCenterUI {
+            margin-left: 12px;
+        }
+
+        #snippet {
+            margin: 10px;
+            max-width: 350px;
+        }
+        #snippetTitle {
+            margin-bottom: 4px;
+            color: rgb(0,0,0);
+            font-family: Roboto,Arial,sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        #snippetBody {
+            margin-bottom: 4px;
+            color: rgb(86,86,86);
+            font-family: Roboto,Arial,sans-serif;
+            font-size: 13px;
+        }
+        #snippetImage {
+            margin-right: 8px;
+        }
+        .snippetRow {
+            display:flex;
+        }
+        .fixed{
+            width: 200px;
+        }
+        .flex-item{
+            flex-grow: 1;
+        }
     </style>
 </head>
 <body>
@@ -52,6 +103,9 @@
 <h1>Maker Map *beta</h1>
 
 <div id="floating-panel">
+    <input onclick="clearMarkers();" type=button value="Hide Markers">
+    <input onclick="showMarkers();" type=button value="Show All Markers">
+    <input onclick="deleteMarkers();" type=button value="Delete Markers">
     <button onclick="toggleHeatmap()">Toggle Heatmap</button>
     <button onclick="changeGradient()">Change gradient</button>
     <button onclick="changeRadius()">Change radius</button>
@@ -63,35 +117,98 @@
 
 <script>
 
-    var map, heatmap;
+    var map, heatmap, markers;
+    var origin = {lat: -31.780383, lng: 150.819296};
+
+    /**
+     * The CenterControl adds a control to the map that recenters the map on origin.
+     * @constructor
+     * @param {!Element} controlDiv
+     * @param {!google.maps.Map} map
+     * @param {?google.maps.LatLng} center
+     */
+    function CenterControl(controlDiv, map, center) {
+        // We set up a variable for this since we're adding event listeners
+        // later.
+        var control = this;
+
+        // Set the center property upon construction
+        control.center_ = center;
+        controlDiv.style.clear = 'both';
+
+        // Set CSS for the control border
+        var goCenterUI = document.createElement('div');
+        goCenterUI.id = 'goCenterUI';
+        goCenterUI.title = 'Click to recenter the map';
+        controlDiv.appendChild(goCenterUI);
+
+        // Set CSS for the control interior
+        var goCenterText = document.createElement('div');
+        goCenterText.id = 'goCenterText';
+        goCenterText.innerHTML = 'Center Map';
+        goCenterUI.appendChild(goCenterText);
+
+        // Set CSS for the setCenter control border
+        var setCenterUI = document.createElement('div');
+        setCenterUI.id = 'setCenterUI';
+        setCenterUI.title = 'Click to change the center of the map';
+        controlDiv.appendChild(setCenterUI);
+
+        // Set CSS for the control interior
+        var setCenterText = document.createElement('div');
+        setCenterText.id = 'setCenterText';
+        setCenterText.innerHTML = 'Set Center';
+        setCenterUI.appendChild(setCenterText);
+
+        // Set up the click event listener for 'Center Map': Set the center of
+        // the map
+        // to the current center of the control.
+        goCenterUI.addEventListener('click', function() {
+            var currentCenter = control.getCenter();
+            map.setCenter(currentCenter);
+        });
+
+        // Set up the click event listener for 'Set Center': Set the center of
+        // the control to the current center of the map.
+        setCenterUI.addEventListener('click', function() {
+            var newCenter = map.getCenter();
+            control.setCenter(newCenter);
+        });
+    }
+
+    /**
+     * Define a property to hold the center state.
+     * @private
+     */
+    CenterControl.prototype.center_ = null;
+
+    /**
+     * Gets the map center.
+     * @return {?google.maps.LatLng}
+     */
+    CenterControl.prototype.getCenter = function() {
+        return this.center_;
+    };
+
+    /**
+     * Sets the map center.
+     * @param {?google.maps.LatLng} center
+     */
+    CenterControl.prototype.setCenter = function(center) {
+        this.center_ = center;
+    };
 
     function initMap() {
-
-        // Adds markers to the map.
-
-        // Marker sizes are expressed as a Size of X,Y where the origin of the image
-        // (0,0) is located in the top left of the image.
-
-        // Origins, anchor positions and coordinates of the marker increase in the X
-        // direction to the right and in the Y direction down.
-        var image = {
-            url: 'https://yt3.ggpht.com/-DgePNo-aqWk/AAAAAAAAAAI/AAAAAAAAAAA/GXX4d9rMQuE/s88-c-k-no-mo-rj-c0xffffff/photo.jpg',
-            // This marker is 20 pixels wide by 32 pixels high.
-            size: new google.maps.Size(20, 20),
-            // The origin for this image is (0, 0).
-            origin: new google.maps.Point(0, 0),
-            // The anchor for this image is the base of the flagpole at (0, 32).
-            anchor: new google.maps.Point(0, 32)
-        };
 
         $.getJSON("map-data.geojson", function(data) {
 
             let points = [];
-            var features = [];
+            let features = [];
             features = data.features;
             //console.log(features);
 
-            var markers = features.map(function (feature, i) {
+            // Adds markers to the map.
+            markers = features.map(function (feature, i) {
                 let coords = feature.geometry.coordinates;
                 let latLng = new google.maps.LatLng(coords[1], coords[0]);
                 points[i] = latLng;
@@ -119,17 +236,44 @@
                 {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
 
             heatmap = new google.maps.visualization.HeatmapLayer({
-                data: points, //getPoints(features),
+                data: points,
                 map: map
             });
+
+            // Create the DIV to hold the control and call the CenterControl()
+            // constructor
+            // passing in this DIV.
+            var centerControlDiv = document.createElement('div');
+            var centerControl = new CenterControl(centerControlDiv, map, origin);
+
+            centerControlDiv.index = 1;
+            centerControlDiv.style['padding-top'] = '10px';
+            map.controls[google.maps.ControlPosition.TOP_LEFT].push(centerControlDiv);
 
         });
 
         map = new google.maps.Map(document.getElementById('map'), {
             zoom: 5,
-            center: {lat: -31.780383, lng: 150.819296}
+            center: origin,
         });
 
+    }
+
+    // Sets the map on all markers in the array.
+    function setMapOnAll(map) {
+        for (var i = 0; i < markers.length; i++) {
+            markers[i].setMap(map);
+        }
+    }
+
+    // Removes the markers from the map, but keeps them in the array.
+    function clearMarkers() {
+        setMapOnAll(null);
+    }
+
+    // Shows any markers currently in the array.
+    function showMarkers() {
+        setMapOnAll(map);
     }
 
 
@@ -178,16 +322,21 @@
             //console.log(data);
             var snippet = data.items[0].snippet;
             var statistics = data.items[0].statistics;
-            var html = '';
+            var html = '<div id="snippet">';
 
-            html += '<div id="content">';
-            html += '<div id="siteNotice"></div>';
-            html += '<h1 id="firstHeading" class="firstHeading">' + snippet.title + '</h1>';
-            html += '<div id="bodyContent">';
-            html += '<p>' + snippet.description + '</p>';
-            //html += '<img src=' + images/'+value.product+'.png"/>';
-
+            html += '<div class="snippetRow">';
+            html += '<div id="snippetTitle" class="snippetRow">' + snippet.title + '</div>';
             html += '</div>';
+
+            html += '<div class="snippetRow">';
+            html += '<div id="snippetImage" class="fixed"><img height="' + snippet.thumbnails.default.width + '" src="' + snippet.thumbnails.default.url + '"/></div>';
+            html += '<div id="snippetBody" class="flex-item">' + snippet.description + '</div>';
+            html += '</div>';
+
+            html += '<div class="snippetRow">';
+            html += '<div><a href="https://www.youtube.com/channel/' + feature.properties.ytChannelId + '" target="_blank" style="cursor: pointer; color: rgb(66, 127, 237); text-decoration: none;">View on YouTube</a></div>';
+            html += '</div>';
+
             html += '</div>';
 
             openWindow(html, marker);
@@ -201,9 +350,7 @@
         infowindow.open(map, marker);
     };
 
-
 </script>
-
 
 <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
 <script async defer
