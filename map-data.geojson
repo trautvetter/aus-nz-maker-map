@@ -1,7 +1,7 @@
 {
   "toAdd": [
     {
-      "foo": "bar"
+      "diy guy": "bar"
     }
   ],
   "type": "FeatureCollection",
@@ -564,7 +564,7 @@
     {
       "type": "Feature",
       "properties": {
-        "ytChannelId": "UCYJ4e0XACGJQjJvfmVUcE-Q-_U9g",
+        "ytChannelId": "UCYJ4e0XACGJQjJvfmVUcE-Q",
         "name": "Brendan Stemp",
         "markerLabel": "BS"
       },
