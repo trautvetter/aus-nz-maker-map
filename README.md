@@ -67,7 +67,7 @@ like this - you'll need to manually add the properties section entries. **Import
   ]
 }
 ```
-**Another way** is just to send me the information - the coordinates are easy to get on [https://www.google.com/maps](Google Maps) ... right click on 
+**Another way** is just to send me the information - the coordinates are easy to get on [Google Maps](https://www.google.com/maps) ... right click on 
 the location, select "What's here?" and copy from the box that appears at the bottom.
 
 **Git savvy?** add to map-data.json, and throw me a pull request.

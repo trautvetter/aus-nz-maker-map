@@ -6,8 +6,12 @@
         //https://developers.google.com/maps/documentation/javascript/examples/layer-data-quakes
     </script>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-115617613-1"></script>
+
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
@@ -21,82 +25,12 @@
     <style>
         /* Always set the map height explicitly to define the size of the div
          * element that contains the map. */
-
         #map {
             height: 85%;
         }
-
-        /* Optional: Makes the sample page fill the window. */
-        html, body {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-        }
-        #floating-panel {
-            position: absolute;
-            top: 10px;
-            left: 25%;
-            z-index: 5;
-            background-color: #fff;
-            padding: 5px;
-            border: 1px solid #999;
-            text-align: center;
-            font-family: 'Roboto','sans-serif';
-            line-height: 30px;
-            padding-left: 10px;
-        }
-        #goCenterUI, #setCenterUI {
-            background-color: #fff;
-            border: 2px solid #fff;
-            border-radius: 2px;
-            box-shadow: rgba(0, 0, 0, 0.3) 0 1px 4px -1px;
-            cursor: pointer;
-            float: left;
-            margin-bottom: 22px;
-            text-align: center;
-        }
-        #goCenterText, #setCenterText {
-            color: rgb(86,86,86);
-            font-family: Roboto,Arial,sans-serif;
-            font-size: 11px;
-            line-height: 25px;
-            padding-left: 5px;
-            padding-right: 5px;
-        }
-        #setCenterUI {
-            margin-left: 12px;
-        }
-
-        #snippet {
-            margin: 10px;
-            max-width: 350px;
-        }
-        #snippetTitle {
-            margin-bottom: 4px;
-            color: rgb(0,0,0);
-            font-family: Roboto,Arial,sans-serif;
-            font-size: 14px;
-            font-weight: 500;
-        }
-        #snippetBody {
-            margin-bottom: 4px;
-            color: rgb(86,86,86);
-            font-family: Roboto,Arial,sans-serif;
-            font-size: 13px;
-        }
-        #snippetImage {
-            margin-right: 8px;
-        }
-        .snippetRow {
-            display:flex;
-        }
-        .fixed{
-            width: 200px;
-        }
-        .flex-item{
-            flex-grow: 1;
-        }
     </style>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css"/>
+    <link rel="stylesheet" type="text/css" href="map.css"/>
 </head>
 <body>
 
@@ -112,8 +46,12 @@
     <button onclick="changeOpacity()">Change opacity</button>
 </div>
 <div id="map"></div>
+<div id="right-panel">
+    <table id="mapItems" class="display compact" style="width:100%">
+    </table>
+</div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
 
 <script>
 
@@ -232,8 +170,8 @@
             });
 
             // Add a marker clusterer to manage the markers.
-            var markerCluster = new MarkerClusterer(map, markers,
-                {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
+            //var markerCluster = new MarkerClusterer(map, markers,
+            //    {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
 
             heatmap = new google.maps.visualization.HeatmapLayer({
                 data: points,
@@ -309,6 +247,26 @@
         heatmap.set('gradient', heatmap.get('gradient') ? null : gradient);
     }
 
+</script>
+
+<script>
+$(document).ready(function() {
+    $('#mapItems').DataTable( {
+        "paging":   false,
+        "ordering": false,
+        "info":     false,
+        "processing": true,
+        "scrollY":    "340px",
+        "ajax": {
+            url: 'map-data.geojson',
+            dataSrc: "features"
+        },
+        "dom": 'rf<"dataTableWrapper"t>',
+        "columns": [
+            { data: "properties.name" }
+        ]
+    } );
+} );
 </script>
 <script>
 

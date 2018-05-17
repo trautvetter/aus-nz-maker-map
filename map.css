@@ -1,0 +1,108 @@
+/* Optional: Makes the map page fill the window. */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+#floating-panel {
+    position: absolute;
+    top: 10px;
+    left: 25%;
+    z-index: 5;
+    background-color: #fff;
+    padding: 5px;
+    border: 1px solid #999;
+    text-align: center;
+    font-family: 'Roboto','sans-serif';
+    line-height: 30px;
+    padding-left: 10px;
+}
+#goCenterUI, #setCenterUI {
+    background-color: #fff;
+    border: 2px solid #fff;
+    border-radius: 2px;
+    box-shadow: rgba(0, 0, 0, 0.3) 0 1px 4px -1px;
+    cursor: pointer;
+    float: left;
+    margin-bottom: 22px;
+    text-align: center;
+}
+#goCenterText, #setCenterText {
+    color: rgb(86,86,86);
+    font-family: Roboto,Arial,sans-serif;
+    font-size: 11px;
+    line-height: 25px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+#setCenterUI {
+    margin-left: 12px;
+}
+
+#snippet {
+    margin: 10px;
+    max-width: 350px;
+}
+#snippetTitle {
+    margin-bottom: 4px;
+    color: rgb(0,0,0);
+    font-family: Roboto,Arial,sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+}
+#snippetBody {
+    margin-bottom: 4px;
+    color: rgb(86,86,86);
+    font-family: Roboto,Arial,sans-serif;
+    font-size: 13px;
+}
+#snippetImage {
+    margin-right: 8px;
+}
+.snippetRow {
+    display:flex;
+}
+.fixed{
+    width: 200px;
+}
+.flex-item{
+    flex-grow: 1;
+}
+#right-panel {
+    font-family: 'Roboto','sans-serif';
+    line-height: 30px;
+    padding-left: 10px;
+}
+
+#right-panel select, #right-panel input {
+    font-size: 15px;
+}
+
+#right-panel select {
+    width: 100%;
+}
+
+#right-panel i {
+    font-size: 12px;
+}
+#right-panel {
+    font-family: Arial, Helvetica, sans-serif;
+    position: absolute;
+    right: 5px;
+    top: 60%;
+    margin-top: -195px;
+    height: 380px;
+    width: 300px;
+    padding: 5px;
+    z-index: 5;
+    border: 1px solid #999;
+    background: #fff;
+}
+dataTableWrapper table.td {
+    color: rgb(86,86,86);
+    font-family: Roboto,Arial,sans-serif;
+    font-size: 11px;
+}
+dataTableWrapper tbody tr {
+    margin: 1px;
+}
