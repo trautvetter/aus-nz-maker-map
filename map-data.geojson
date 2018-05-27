@@ -1,9 +1,4 @@
 {
-  "toAdd": [
-    {
-      "diy guy": "bar"
-    }
-  ],
   "type": "FeatureCollection",
   "features": [
     {
@@ -603,6 +598,21 @@
         "coordinates": [
           127.61718749999999,
           -33.100745405144245
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Geoff Croker",
+        "markerLabel": "GK",
+        "ytChannelId": "UCUOfupxqzuqSL_rfzA3PENQ"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          176.99541091918942,
+          -37.94893543371809
         ]
       }
     }
